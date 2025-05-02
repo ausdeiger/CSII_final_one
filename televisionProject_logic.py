@@ -138,20 +138,11 @@ class Television(QMainWindow, Ui_remote):
                 self.bar_curr_chan.setValue(self.__channel)
                 self.show_only_current_channel()
 
-    def show_only_current_channel(self):
+    def show_only_current_channel(self) -> None:
+        """
+        Updates tv 'display'
+        """
         for i, screen in enumerate(self.channels):
             screen.setVisible(i == self.current_channel_index)
         if self.__status:
             self.bar_curr_chan.setValue(self.__channel)
-
-
-
-
-    def __str__(self) -> str:
-        """
-        Output function
-        :return: Television status list
-        """
-        return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
-
-
